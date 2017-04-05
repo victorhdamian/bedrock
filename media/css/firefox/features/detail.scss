@@ -1,0 +1,128 @@
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+@import '../../pebbles/includes/lib';
+@import '../hub/news-feed';
+@import '../hub/outro';
+
+$color-burnt-orange: #9c432a;
+$color-firefox-light-orange: #ff9500;
+
+//* -------------------------------------------------------------------------- */
+// Firefox values
+
+.values {
+
+    .card {
+        border-top: 4px solid #000;
+        padding: 20px 0;
+
+        &:nth-child(1) {
+            border-top: none;
+            margin-bottom: 40px;
+            overflow: hidden;
+            padding: 100px 0 0;
+            position: relative;
+
+            .card-image {
+                left: 0;
+                width: 500px;
+                max-width: none;
+                position: absolute;
+                top: 0;
+                z-index: 1;
+            }
+
+            .card-label {
+                margin-left: 0;
+                position: relative;
+                z-index: 2;
+
+                strong {
+                    background: #fff;
+                    color: #000;
+                }
+            }
+
+            .card-content {
+                background: #fff;
+                margin-right: 40px;
+                padding: 20px;
+                position: relative;
+                z-index: 2;
+            }
+
+            @media #{$mq-phone-wide} {
+                .card-image {
+                    width: 100%;
+                }
+            }
+
+            @media #{$mq-tablet} {
+                padding: 240px 0 0;
+
+                .card-image {
+                    width: 500px;
+                }
+            }
+        }
+
+        &:last-child {
+            padding-bottom: 0;
+        }
+    }
+
+    .card-label {
+        @include font-size-level4;
+        line-height: 1.1;
+        margin-bottom: 20px;
+        text-transform: lowercase;
+
+        strong {
+            background: #000;
+            color: #fff;
+            padding: 0 5px 0 40px;
+        }
+    }
+
+    @supports (display: grid) {
+
+        @media #{$mq-tablet} {
+
+            .card-list {
+                display: grid;
+                grid-gap: 20px;
+                grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+                grid-template-areas: 'image-card card-2'
+                                     'image-card card-3';
+            }
+
+            .card {
+                padding: 40px;
+
+                &:nth-child(1) {
+                    grid-area: image-card;
+                    margin-bottom: 0;
+                    position: relative;
+
+                    .card-content {
+                        padding: 40px;
+                    }
+                }
+
+                &:nth-child(2) {
+                    grid-area: card-2;
+                }
+
+                &:nth-child(3) {
+                    grid-area: card-3;
+                }
+            }
+
+            .card-label {
+                margin-left: -40px;
+            }
+        }
+    }
+}

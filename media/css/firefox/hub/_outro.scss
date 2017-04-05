@@ -1,0 +1,196 @@
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+@import '../../pebbles/includes/lib';
+
+/* -------------------------------------------------------------------------- */
+// Firefox Hub: Outro Components
+
+
+// Remove horizontal divider since these components both have colored backgrounds.
+.outro .content:before {
+    content: none;
+}
+
+.outro-item {
+    margin-bottom: 40px;
+    padding: 20px;
+    color: #fff;
+
+    @media #{$mq-tablet} {
+        padding: 40px;
+    }
+
+    @media #{$mq-desktop} {
+        h2 {
+            @include font-size-level1;
+        }
+
+        .tagline {
+            @include font-size-level2;
+            line-height: 1.2;
+        }
+    }
+
+    @media #{$mq-desktop-wide} {
+        min-height: 358px;
+    }
+}
+
+.outro-item-detail {
+
+    @media #{$mq-tablet} {
+        width: 45%;
+    }
+}
+
+.outro-item-download {
+    background-color: #051818;
+
+    @media #{$mq-tablet} {
+        background-image: url('/media/img/firefox/hub/flames.jpg');
+        background-position: bottom right -400px;
+        background-repeat: no-repeat;
+    }
+
+    @media #{$mq-desktop} {
+        background-position: bottom right -240px;
+    }
+
+    @media #{$mq-desktop-wide} {
+        background-position: bottom right;
+    }
+}
+
+.outro-item-newsletter {
+    background-color: #0a84ff;
+
+    @media #{$mq-tablet} {
+        @include at2x('/media/img/firefox/hub/critters.jpg', 65%, auto);
+        background-position: right -100px top -40px;
+        background-repeat: no-repeat;
+    }
+
+    @media #{$mq-desktop} {
+        @include background-size(70%, auto);
+        background-position: right -140px top -80px;
+    }
+
+    @media #{$mq-desktop-wide} {
+        @include background-size(750px, auto);
+        background-position: right top -140px;
+    }
+
+    a:link,
+    a:visited {
+        color: #fff;
+        text-decoration: underline;
+    }
+}
+
+html[dir="rtl"] {
+    .outro-item-download {
+        @media #{$mq-tablet} {
+            background-position: bottom left -400px;
+        }
+
+        @media #{$mq-desktop} {
+            background-position: bottom left -240px;
+        }
+
+        @media #{$mq-desktop-wide} {
+            background-position: bottom left -100px;
+        }
+    }
+
+    .outro-item-newsletter {
+        @media #{$mq-tablet} {
+            background-position: left -100px top -40px;
+        }
+
+        @media #{$mq-desktop} {
+            background-position: left -140px top -80px;
+        }
+
+        @media #{$mq-desktop-wide} {
+            background-position: left -40px top -140px;
+        }
+    }
+}
+
+#newsletter-form {
+    width: 100%;
+    max-width: 300px;
+
+    input[type="email"] {
+        @include open-sans();
+        border-color: #fff;
+        border-radius: 0;
+        padding: .5em 10px;
+        width: 100%;
+    }
+
+    #form-details {
+        @include font-size(16px);
+        padding-top: 20px;
+    }
+
+    button[type="submit"] {
+        @include font-size(18px);
+        @include open-sans();
+        @include transition(background-color .1s ease-in-out, color .1s ease-in-out);
+        border-color: #fff;
+        border-radius: 0;
+        color: #fff;
+        font-family: $font-open-sans;
+        font-weight: bold;
+        font-weight: normal;
+        margin: 20px 0 5px;
+
+        &:hover,
+        &:focus {
+            background-color: #fff;
+            color: $color-text-primary;
+        }
+    }
+
+    label {
+        @include font-size(16px);
+    }
+
+    select {
+        @include open-sans();
+        max-width: 100%;
+    }
+
+    .field {
+        margin-bottom: 5px;
+    }
+}
+
+#footer-email-errors {
+    .errorlist {
+        background: #fff;
+        color: $color-mozred;
+    }
+}
+
+#outro-download-firefox {
+    .download-link {
+        @include font-size(18px);
+        @include open-sans();
+        @include transition(background-color .1s ease-in-out, color .1s ease-in-out);
+        border-color: #fff;
+        border-radius: 0;
+        color: #fff;
+        font-family: $font-open-sans;
+        font-weight: bold;
+
+        &:hover,
+        &:focus {
+            background-color: #fff;
+            color: $color-text-primary;
+        }
+    }
+}

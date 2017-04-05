@@ -1,0 +1,76 @@
+{# This Source Code Form is subject to the terms of the Mozilla Public
+ # License, v. 2.0. If a copy of the MPL was not distributed with this
+ # file, You can obtain one at http://mozilla.org/MPL/2.0/. -#}
+
+{% extends "firefox/features/base.html" %}
+
+{% add_lang_files "firefox/features/hub" %}
+
+{% block page_title %}{{ _('Private Browser Protects Your Online Privacy') }} | {{ _('Firefox') }}{% endblock %}
+{% block page_desc %}{{ _('Firefox protects your online privacy and blocks trackers that follow you around the web. Get Firefox for private browsing!') }}{% endblock %}
+
+{% block page_image %}{{ static('img/firefox/features/page-image-private.jpg') }}{% endblock %}
+
+{% block page_css %}
+  {% stylesheet 'firefox-features-hub-detail' %}
+{% endblock %}
+
+{% block body_id %}firefox-features-private{% endblock %}
+
+{% block features_header_content %}
+  <h1><span>{{ _('Firefox: More protection. Less worry.') }}</span></h1>
+  <p class="tagline">
+  {% trans %}
+    We’re obsessed with protecting your privacy. That’s why we’ve made Firefox Private
+    Browsing more powerful than the others.
+  {% endtrans %}
+  </p>
+{% endblock %}
+
+{% block features_list %}
+<section class="features-list-section">
+  <div class="content">
+    <h2 class="section-title"><span>{{ _('Features') }}</span></h2>
+
+    <ul class="features-list">
+      <li class="features-list-item">
+        <div class="features-list-image"></div>
+        <h3>{{ _('Wipes it clean') }}</h3>
+        <p>
+        {% trans %}
+          Sharing is caring, but not when when it’s not your choice. When using Firefox
+          private browsing, your browsing history, form data and cookies get wiped upon
+          exit leaving no evidence of your searches or visited pages on your computer.
+        {% endtrans %}
+        </p>
+        <a class="cta-link" href="{{ url('firefox.features') }}">{{ _('Learn more') }}</a>
+      </li>
+      <li class="features-list-item">
+        <div class="features-list-image"></div>
+        <h3>{{ _('Keep them away') }}</h3>
+        <p>
+        {% trans %}
+          Some webpages fire up trackers that collect info about you. Only Firefox’s
+          Private Browsing stops them before they activate, so you can browse freely
+          when it matters the most.
+        {% endtrans %}
+        </p>
+        <a class="cta-link" href="{{ url('firefox.features') }}">{{ _('Learn more') }}</a>
+      </li>
+      <li class="features-list-item">
+        <div class="features-list-image"></div>
+        <h3>{{ _('No more mess') }}</h3>
+        <p>
+        {% trans %}
+          Some ads contain trackers that continue to collect your info long after you’ve
+          seen it. When you use Firefox private browsing, we automatically blocks these
+          ads in order to respect your request for privacy.
+        {% endtrans %}
+        </p>
+        <a class="cta-link" href="{{ url('firefox.features') }}">{{ _('Learn more') }}</a>
+      </li>
+    </ul>
+
+  </div> {#--/.content--#}
+</section>
+{% endblock %}
