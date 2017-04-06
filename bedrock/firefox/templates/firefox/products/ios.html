@@ -1,0 +1,233 @@
+{# This Source Code Form is subject to the terms of the Mozilla Public
+ # License, v. 2.0. If a copy of the MPL was not distributed with this
+ # file, You can obtain one at http://mozilla.org/MPL/2.0/. #}
+
+{% from "macros.html" import send_to_device with context %}
+
+{% extends "firefox/products/product-base.html" %}
+
+{% block page_title_prefix %}{% endblock %}
+{% block page_title %}{{ _('Free Mobile Browser App for iPhone, iPad, iOS | Firefox') }}{% endblock %}
+{% block page_desc %}{{ _('Join the millions browsing better on iPhone and iPad. Firefox is fast and private. Install Firefox for iOS now!') }}{% endblock %}
+{% block page_title_suffix %}{% endblock %}
+
+
+{% block content %}
+<nav id="fx-global-nav" class="moz-sub-nav" role="navigation">
+  <div class="nav-horizontal-menu">
+    <a id="fx-global-nav-home-link" href="{{ url('firefox') }}">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="26" height="26">
+        <title>{{ _('Firefox') }}</title>
+        <path class="fx-subnav-logo-path" d="M190.5 129.6c5.5-11 13.9-35.6 6.7-55.8.1.2.1.4.1.6-.1-.2-.1-.4-.1-.4s-1.3 4-3.2 10.3c-.1-.8-.3-1.7-.4-2.5.5-7.6.3-12.4-1.7-20.8-3.5-14.8-11.4-25.6-16.4-29 .2.2.5.4.8.6-.6-.4-.9-.7-.9-.7s.2 1.1.6 3.1c-5.4-8.5-13.7-12.5-13.7-12.5s.3 1.4.7 4.4c-17-15-39.3-24.2-63.8-24.2-24.9 0-47.5 9.5-64.6 25 .9 1.1 1.9 2.4 2.9 4 0 0 6.5-1.2 14.4-.4C65.6 21.6 82 16.4 99.2 16.4c22 0 42.6 8.6 58.2 24.1.8.8 1.6 1.6 2.4 2.5-4.6-2.8-10.2-6-14.4-6.3C154 43 168.4 63 166.8 90c-2.8-6.9-6.4-11.9-9.3-14.4 3.1 28.1.4 34.1-1.5 41.6-.4-3.4-1.6-6-2.4-7.6 0 0-.3 8.8-6 21.3-4.3 9.5-8.8 12.4-10.7 12.1-1.7-.3-.5-2-.9-3.6 0 0-3 1.4-5.9 4.5-2.8 2.9-5.3 6.1-6.6 5.2 1-.8 1.7-2.2 2.5-3.5-1.1.8-3.9 2.9-10.1 3.8-2.6.4-13.4 2.4-27.9-4.9 2.1-.2 5.3-1 7.7.4-2.4-2.6-8.2-2.1-12.4-3.4-3.6-1.1-8.4-6.2-11.1-8.8 11.1 2.7 23 .8 29.8-3.9 6.9-4.7 11-8.2 14.7-7.4 3.7.8 6.1-2.9 3.3-6.1-2.8-3.3-9.8-7.8-19.1-5.3-6.6 1.7-14.8 9-27.3 1.6C62.9 105.3 63 100.1 63 96.9c0-2.2 1.4-5.3 3.9-6.7 1.4.5 2.2.9 2.2.9s-.6-1-1-1.5c.1 0 .2-.1.3-.1 1.1.4 3.7 1.3 5 2 1.7.9 2.3 1.8 2.3 1.8s.4-.3 0-1.2c-.2-.4-.8-1.4-2.5-2.5h.1c.9.4 1.9.8 2.9 1.4.3-1.5 1-3.1.5-5.9-.3-2-.3-2.5-.8-3.2-.4-.6.1-.9.8-.3l-.6-1.5c0-.1.1-.3.3-.5 2-2.8 15.3-9.6 16.3-10.4 1.3-.9 2.4-1.8 3.3-3.3 1.3-.8 2.5-4.5 2.1-7.2-.2-1.6-1.4-1.9-3.3-2.3-.7-.2-9.1-.6-14-.4-4.2.2-7.2-2.3-8.8-4.7-.3-.5-.6-1-.9-1.4-.4-.7-.6-1.2-.8-1.7 1.8-6.7 5.6-12.4 11.3-17.1.4-.3-1.4.2-1-.1.4-.4 2.8-1.5 3.3-1.8.6-.3-2.6-1.2-5.4-.6-2.8.6-3.3.9-4.7 1.6.6-.6 2.5-1.6 2-1.5-3 .7-6.6 2.7-9.6 4.8 0-.3 0-.5.1-.9-1.4.7-4.9 3.4-5.8 5.4 0-.4 0-.7-.1-1.2-1 .9-1.9 2-2.8 3.1-9-2.2-16.6-1.7-23 .4-2.1-1.7-5.4-4.8-7.8-8.8-.2-.4-.3.8-.5.4-1.4-2.5-2.6-6.5-2.9-9.8 0-.3-.1-.6-.1-.9 0 0-1.2.7-2.4 2.8-.6.9-1.1 2.2-1.6 3.7-.3.9-.5 1.4-.7 1.9-.1.2.1-1.6.1-1.5-.3.6-1.2 1.6-1.5 2.8-.2.9-.6 1.4-.7 2.5v.1c0-.3 0-1.3-.1-1.1-.7 1.9-1.4 4.2-2 6.7-.5 1.8-.8 3.9-1 6.3-.2 2.7-.3 5.8 0 9.4v1.6c-2.9 3.6-4.4 6.5-5 7.9-2.9 5.8-6 14.6-8.4 28.3 0 0 1.6-5.1 4.8-10.9v.2c-2.4 7.4-4.2 18.8-3.1 35.7 0-.6.6-4.9 1.8-10.8.6 11.5 3.6 25.7 12.2 41.2 14.2 25.5 41.9 43.3 69.8 48.5-4.9-1.4-8-4.3-8-4.3s16.8 5.4 29.1 4.9c-3.8-.7-4.6-2.5-4.6-2.5s34.9 2 53.1-12.4c4.1-3.1 6.7-6.6 7.5-9.8 5.4-2.8 11.1-6.7 17-12.6 9.9-9.7 10.9-17.1 12-24 0 .2-.1.4-.1.6.4-2.6.1-5-1-6.8z"/>
+      </svg>
+    </a>
+    <ul class="subnav-primary-links">
+      <li><a href="{{ url('firefox.desktop.index') }}">{{ _('Desktop Browser') }}</a></li>
+      <li><a href="{{ url('firefox.android.index') }}">{{ _('Android Browser') }}</a></li>
+      <li><a href="{{ url('firefox.ios') }}">{{ _('iOS Browser') }}</a></li>
+      <li><a href="#">{{ _('Features') }}</a></li>
+      <li><a href="https://support.mozilla.org">{{ _('Support') }}</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<main class="page-content">
+  <section id="page-intro" class="section page-intro">
+    <div class="content">
+
+      <div class="intro-content">
+        <h1 class="page-title"><span>Firefox for iOS</span></h1>
+        <h2 class="page-subtitle">Browser app for iPhone and iPad</h2>
+        <p class="tagline">Time for an Apple upgrade you’ll actually like.</p>
+      </div>
+
+      <div class="intro-download">
+        <a href="{{ firefox_ios_url('mozorg-ios_page-appstore-button') }}" data-link-type="download" data-download-os="iOS">
+          <img src="{{ l10n_img('firefox/ios/btn-app-store.svg') }}" alt="{{ _('Download on the App Store') }}">
+        </a>
+      </div>
+
+      <img class="hero-image" src="{{ static('img/firefox/products/ios/product-ios-hero.jpg') }}" alt="">
+
+    </div>
+  </section> {#--/#page-head--#}
+
+
+  <section id="features" class="section features">
+    <div class="content">
+
+      <h2 class="section-title"><span>{{ _('Features') }}</span></h2>
+
+      <ul class="features-list">
+        <li class="features-list-item">
+          <img src="{{ static('img/firefox/products/ios/feature-ios-sync.jpg') }}" alt="">
+          <h3 class="feature-title">{{ _('Device-hop like a pro') }}</h3>
+          <div class="feature-desc">
+            <p>
+            {% trans %}
+              When you move, Sync moves with you. Take your favorite bookmarks,
+              open tabs, passwords, and history with you across iOS devices.
+            {% endtrans %}
+            </p>
+          </div>
+          <p class="cta"><a href="#" class="cta-link">Learn more</a></p>
+        </li>
+
+        <li class="features-list-item">
+          <img src="{{ static('img/firefox/products/ios/feature-ios-private.jpg') }}" alt="">
+          <h3 class="feature-title">{{ _('Control your privacy') }}</h3>
+          <div class="feature-desc">
+            <p>
+            {% trans %}
+              To share or not to share… that’s totally up to you. Firefox doesn’t
+              sell access to your data, so you get full control over who sees your
+              browsing history with private browsing and protection controls.
+            {% endtrans %}
+            </p>
+          </div>
+          <p class="cta"><a href="#" class="cta-link">Learn more</a></p>
+        </li>
+
+        <li class="features-list-item">
+          <img src="{{ static('img/firefox/products/ios/feature-ios-search.jpg') }}" alt="">
+          <h3 class="feature-title">{{ _('Be a know-it-all') }}</h3>
+          <div class="feature-desc">
+            <p>
+            {% trans %}
+              Find what you’re looking for faster with Firefox’s intelligent search
+              suggestions. We do the work by predicting search terms, so you can answer
+              those burning questions in seconds.
+            {% endtrans %}
+            </p>
+          </div>
+          <p class="cta"><a href="#" class="cta-link">Learn more</a></p>
+        </li>
+      </ul>
+
+    </div>
+  </section> {#--/#features--#}
+
+
+{# News feed is currently shown to English locales only. #}
+{% if LANG.startswith('en') and articles %}
+  <section id="news" class="section news">
+    <div class="content">
+      <h2 class="section-title"><span>{{ _('News from around the Web') }}</span></h2>
+      <ul class="news-feed">
+        {% for article in articles %}
+          <li>
+            <article class="entry">
+              <a class="entry-block" rel="bookmark" href="{{ article.link }}">
+                {% set thumbnail = article.get_featured_image_url(size='medium') %}
+                {% if thumbnail %}
+                  <img src="{{ thumbnail }}" alt="">
+                {% else %}
+                  <img src="{{ static('img/firefox/hub/news-fallback-thumbnail.jpg') }}" alt="">
+                {% endif %}
+                <h3 class="entry-title">{{ article.blog_title }}</h3>
+              </a>
+              <div class="entry-summary">
+                <p>{{ article.htmlify() }}</p>
+              </div>
+              <p class="entry-cta">
+                <a href="{{ article.link }}" class="cta-link">{{ article.blog_name }}</a>
+              </p>
+            </article>
+          </li>
+        {% endfor %}
+      </ul>
+
+    </div> {#--/.content--#}
+  </section> {#--/.news--#}
+{% endif %}
+
+
+  <section id="values" class="section">
+    <div class="content">
+
+      <section id="private" class="card">
+        <p class="card-label"><strong>{{ _('Private') }}</strong></p>
+        <div class="card-content">
+          <h2 class="card-title">{{ _('More Privacy') }}</h2>
+          <p>
+          {% trans %}
+            Let your freak flag fly… or keep it safely tucked away. Firefox’s
+            powerful privacy tools give you control over your data, so that
+            you can browse, bank, and binge-watch without a care.
+          {% endtrans %}
+          </p>
+          <p class="card-cta"><a href="#" class="cta-link">{{ ('See how Firefox protects your privacy') }}</a></p>
+        </div>
+      </section>
+
+      <section id="modern" class="card">
+        <p class="card-label"><strong>{{ _('Modern') }}</strong></p>
+        <div class="card-content">
+          <h2 class="card-title">{{ _('More Speed') }}</h2>
+          <p>
+          {% trans %}
+            Bring it, Internet! Firefox has spent the last year beefing up our
+            performance, and pushing the web further with new, exclusive features.
+            So go ahead and launch a big project or binge a live panda stream —
+            without missing a beat.
+          {% endtrans %}
+          </p>
+          <p class="card-cta"><a href="#" class="cta-link">{{ _('Check out our browser muscles') }}</a></p>
+        </div>
+      </section>
+
+      <section id="independent" class="card featured-image-card">
+        <div class="card-image">
+          <img src="{{ static('img/firefox/hub/value-indie.jpg') }}" alt="">
+        </div>
+        <p class="card-label"><strong>{{ _('Independent') }}</strong></p>
+        <div class="card-content">
+          <h2 class="card-title">{{ _('More Freedom') }}</h2>
+          <p>
+          {% trans %}
+            Following the pack isn’t really our style; we’d rather lead. Firefox
+            is an independent browser fueled by a non-profit, Mozilla. So when
+            you choose Firefox, you’re helping build a healthy, unrestricted
+            Internet that helps everyone.
+          {% endtrans %}
+          </p>
+          <p class="card-cta"><a href="#" class="cta-link">{{ _('See how it benefits you') }}</a></p>
+        </div>
+      </section>
+
+    </div> {#--/.content--#}
+  </section> {#--/#values--#}
+
+
+  <aside id="page-outro" class="section">
+    <div class="content">
+      <div class="outro-content">
+        <img class="hero-image" src="{{ static('img/firefox/desktop/fpo.jpg') }}" alt="">
+        <h2>Start browsing with Firefox today</h2>
+        <p>Faster than ever, more secure, and always independent.</p>
+      </div>
+
+      <div class="outro-download">
+        <p>
+          <a href="{{ firefox_ios_url('mozorg-ios_page-appstore-button') }}" data-link-type="download" data-download-os="iOS">
+            <img src="{{ l10n_img('firefox/ios/btn-app-store.svg') }}" alt="{{ _('Download on the App Store') }}">
+          </a>
+        </p>
+      </div>
+    </div>
+  </aside> {#--/#page-outro--#}
+
+
+  <aside id="newsletter-subscribe" class="section">
+    <div class="content">
+      {{ email_newsletter_form(
+         title=_('Hungry for more?'),
+         subtitle=_('Get the latest &amp; greatest from Firefox delivered straight to your inbox.'),
+         button_class='button-dark')
+      }}
+    </div>
+  </aside> {#--/#newsletter-subscribe--#}
+
+</main>
+{% endblock %}

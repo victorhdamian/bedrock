@@ -23,6 +23,7 @@ import querystringsafe_base64
 from product_details.version_compare import Version
 
 from lib import l10n_utils
+from lib.l10n_utils.dotlang import lang_file_is_active
 from bedrock.base.urlresolvers import reverse
 from bedrock.firefox.firefox_details import firefox_desktop, firefox_android
 from bedrock.firefox.forms import SendToDeviceWidgetForm
@@ -30,6 +31,7 @@ from bedrock.mozorg.util import HttpResponseJSON
 from bedrock.newsletter.forms import NewsletterFooterForm
 from bedrock.releasenotes import version_re
 from bedrock.utils.views import VariationMixin
+from bedrock.wordpress.views import BlogPostsView
 
 
 UA_REGEXP = re.compile(r"Firefox/(%s)" % version_re)
@@ -526,3 +528,52 @@ def ios_testflight(request):
     return l10n_utils.render(request,
                              'firefox/testflight.html',
                              {'newsletter_form': newsletter_form})
+
+
+class FirefoxProductDesktopView(BlogPostsView):
+    blog_posts_limit = 3
+    blog_posts_template_variable = 'articles'
+    blog_slugs = 'firefox'
+
+    def get_template_names(request):
+        locale = l10n_utils.get_locale(request)
+
+        if lang_file_is_active('firefox/products/desktop', locale):
+            template_name = 'firefox/products/desktop.html'
+        else:
+            template_name = 'firefox/desktop/index.html'
+
+        return [template_name]
+
+
+class FirefoxProductAndroidView(BlogPostsView):
+    blog_posts_limit = 3
+    blog_posts_template_variable = 'articles'
+    blog_slugs = 'firefox'
+
+    def get_template_names(request):
+        locale = l10n_utils.get_locale(request)
+
+        if lang_file_is_active('firefox/products/android', locale):
+            template_name = 'firefox/products/android.html'
+        else:
+            template_name = 'firefox/android/index.html'
+
+        return [template_name]
+
+
+class FirefoxProductIOSView(BlogPostsView):
+    blog_posts_limit = 3
+    blog_posts_template_variable = 'articles'
+    blog_slugs = 'firefox'
+
+    def get_template_names(request):
+        locale = l10n_utils.get_locale(request)
+
+        if lang_file_is_active('firefox/products/ios', locale):
+            template_name = 'firefox/products/ios.html'
+        else:
+            template_name = 'firefox/ios.html'
+
+        return [template_name]
+
