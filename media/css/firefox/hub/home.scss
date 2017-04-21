@@ -6,6 +6,7 @@
 @import '../../pebbles/components/newsletter';
 @import '../../hubs/sub-nav';
 @import '../../hubs/cards';
+@import '../../hubs/buttons';
 
 $grey: #ddd;
 
@@ -19,25 +20,11 @@ $grey: #ddd;
 #hub-content {
     @include zilla-slab;
 
-    .download-link,
     .form-button,
     .form-contents,
     .form-submit,
     .fx-privacy-link a {
         @include open-sans();
-    }
-
-    .download-link,
-    .form-button {
-        @include font-size(18px);
-        background: transparent;
-        border-color: #9c432a;
-        border-radius: 0;
-        color: #9c432a;
-
-        &:hover {
-            background: rgba(156, 67, 42, .05);
-        }
     }
 
     .fx-privacy-link a {
