@@ -17,8 +17,6 @@
   {% include 'firefox/hub/_sub-nav.html' %}
 
   <div id="hub-content">
-    <hr class="content section-break section-break-tall" />
-
     <section id="intro" class="page-section">
       <div class="content columns2">
         <div class="column">
@@ -36,76 +34,69 @@
     </section> {#--/#intro--#}
 
     <section id="features" class="page-section">
-      <div class="content columns2">
-        <div id="privacy" class="column">
-          <section id="private" class="card featured-image-card">
-            <img src="{{ static('img/firefox/private-browsing/private-browsing-meta.png') }}" class="card-image" width="800">
+      <div class="content">
+        <section id="private" class="card featured-image-card">
+          <strong class="card-label">{{ _('Private') }}</strong>
 
-            <strong class="card-label">{{ _('Private') }}</strong>
+          <div class="card-content">
+            <h2 class="card-heading">{{ _('More Privacy') }}</h2>
 
-            <div class="card-content">
-              <h2 class="card-heading">{{ _('More Privacy') }}</h2>
+            <p>
+            {% trans %}
+              Let your freak flag fly&hellip;or keep it safely tucked away.
+              Firefox’s powerful privacy tools give you control over your
+              data, so that you can browse, bank, and binge-watch without a
+              care.
+            {% endtrans %}
+            </p>
 
-              <p>
-              {% trans %}
-                Let your freak flag fly&hellip;or keep it safely tucked away.
-                Firefox’s powerful privacy tools give you control over your
-                data, so that you can browse, bank, and binge-watch without a
-                care.
-              {% endtrans %}
-              </p>
+            <a class="card-cta" href="">
+              {{ _('See how Firefox protects your privacy') }}
+            </a>
+          </div>
+        </section> {#--/.card--#}
+        <section id="modern" class="card card-stacked">
+          <strong class="card-label">{{ _('Modern') }}</strong>
 
-              <a class="card-cta" href="">
-                {{ _('See how Firefox protects your privacy') }}
-              </a>
-            </div>
-          </section>
-        </div> {#--/.column--#}
-        <div id="modern-independent" class="column">
-          <section id="modern" class="card card-stacked">
-            <strong class="card-label">{{ _('Modern') }}</strong>
+          <div class="card-content">
+            <h2 class="card-heading">{{ _('More Speed') }}</h2>
 
-            <div class="card-content">
-              <h2 class="card-heading">{{ _('More Speed') }}</h2>
+            <p>
+            {% trans %}
+              Bring it, Internet! Firefox has spent the last year beefing up
+              our performance, and pushing the web further with new, exclusive
+              features. So go ahead and launch a big project or binge a live
+              panda stream &mdash; without missing a beat.
+            {% endtrans %}
+            </p>
 
-              <p>
-              {% trans %}
-                Bring it, Internet! Firefox has spent the last year beefing up
-                our performance, and pushing the web further with new, exclusive
-                features. So go ahead and launch a big project or binge a live
-                panda stream &mdash; without missing a beat.
-              {% endtrans %}
-              </p>
+            <a class="card-cta" href="">
+              {{ _('Check out our browser muscles') }}
+            </a>
+          </div>
+        </section>
+        <section id="independent" class="card card-stacked">
+          <strong class="card-label">{{ _('Independent') }}</strong>
 
-              <a class="card-cta" href="">
-                {{ _('Check out our browser muscles') }}
-              </a>
-            </div>
-          </section>
-          <section id="independent" class="card card-stacked">
-            <strong class="card-label">{{ _('Independent') }}</strong>
+          <div class="card-content">
+            <h2 class="card-heading">{{ _('More Freedom') }}</h2>
 
-            <div class="card-content">
-              <h2 class="card-heading">{{ _('More Freedom') }}</h2>
+            <p>
+            {% trans %}
+              Following the pack isn’t really our style; we’d rather lead.
+              Firefox is an independent browser fueled by a non-profit,
+              Mozilla. So when you choose Firefox, you’re helping build a
+              healthy, unrestricted Internet that helps everyone.
+            {% endtrans %}
+            </p>
 
-              <p>
-              {% trans %}
-                Following the pack isn’t really our style; we’d rather lead.
-                Firefox is an independent browser fueled by a non-profit,
-                Mozilla. So when you choose Firefox, you’re helping build a
-                healthy, unrestricted Internet that helps everyone.
-              {% endtrans %}
-              </p>
-
-              <a class="card-cta" href="">{{ _('See how it benefits you') }}</a>
-            </div>
-          </section>
-        </div> {#--/.column--#}
+            <a class="card-cta" href="">{{ _('See how it benefits you') }}</a>
+          </div>
+        </section> {#--/#independent.card--#}
       </div> {#--/.content--#}
     </section> {#--/#features.page-section--#}
 
     {% if LANG.startswith('en-') %}
-    <hr class="content section-break" />
 
     <section class="page-section">
       <div class="content">

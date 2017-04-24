@@ -32,20 +32,26 @@ $grey: #ddd;
     }
 }
 
-.section-break {
-    @include gradient-horizontal($start-color: #69B9D0, $end-color: #9a4229);
-    border: 0;
-    height: 6px;
-    margin: 0 20px;
-    min-width: 0;
-    padding: 0;
+.page-section {
+    .content {
+        &:before {
+            @include gradient-horizontal($start-color: #69B9D0, $end-color: #9a4229);
+            border: 0;
+            content: '';
+            display: block;
+            height: 6px;
+            margin: 0 20px;
+            min-width: 0;
+            padding: 0;
 
-    &.section-break-tall {
-        height: 10px;
+            @media #{$mq-tablet} {
+                margin: 0 auto;
+            }
+        }
     }
 
-    @media #{$mq-tablet} {
-        margin: 0 auto;
+    &:first-child .content:before {
+        height: 10px;
     }
 }
 
@@ -108,13 +114,6 @@ $grey: #ddd;
 /* -------------------------------------------------------------------------- */
 // Features
 
-@media #{$mq-desktop} {
-    #features .content {
-        display: flex;
-    }
-}
-
-
 #mobile-card {
     .card-content-wrapper {
         @include at2x('/media/img/foundation/annualreport/2015/bg-banner-desktop.jpg', 1280px, 612px);
@@ -126,6 +125,18 @@ $grey: #ddd;
     a:visited {
         color: inherit;
     }
+}
+
+#private.featured-image-card {
+    background-image: url('/media/img/firefox/hub/texture-private.jpg');
+}
+
+#modern.featured-image-card {
+    background-image: url('/media/img/firefox/hub/texture-modern.jpg');
+}
+
+#independent.featured-image-card {
+    background-image: url('/media/img/firefox/hub/texture-independent.jpg');
 }
 
 #newsletter-form {
@@ -142,44 +153,37 @@ $grey: #ddd;
     }
 }
 
-@supports (display: flex) {
+@supports (display: grid) {
     @media #{$mq-tablet} {
-        .columns2 {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
+        #features .content {
+            display: grid;
+            grid-gap: 20px;
+            // two columns of equal size / 2 rows of equal size
+            // grid-template: 1fr 1fr / 1fr 1fr; // equivalent to line below
+            grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+            // create a named area 'image-card' that spans two columns in the first row
+            // _______________________
+            // | image-card | card-2 |
+            // |            |--------|
+            // |            | card-3 |
+            // _______________________
+            //
+            grid-template-areas: 'image-card card-2'
+                                 'image-card card-3';
 
-            .column {
-                flex: 0 0 calc(50% - 10px);
+            .card {
+                &:first-child {
+                    grid-area: image-card; // stick the first .card in the 'image-card' grid template area
+                }
+
+                &:nth-child(2) {
+                    grid-area: card-2;
+                }
+
+                &:nth-child(3) {
+                    grid-area: card-3;
+                }
             }
-        }
-
-        // product list
-        .productlist {
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        .product {
-            flex: 1 0 calc(50% - 40px);
-        }
-    }
-
-    @media #{$mq-desktop} {
-        .product {
-            flex: 1 0 calc(25% - 40px);
-        }
-    }
-
-    @media #{$mq-desktop-wide} {
-        // blog feeds
-        .blog-list {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .blog-list-item {
-            flex: 0 0 calc(50% - 40px);
         }
     }
 }

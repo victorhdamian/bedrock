@@ -56,17 +56,12 @@ $card-padding: 20px;
 }
 
 .featured-image-card {
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: 100%;
     overflow: hidden;
-    padding-top: 240px;
+    padding-top: 140px;
     position: relative;
-
-    .card-image {
-        left: 0;
-        max-width: none;
-        position: absolute;
-        top: 0;
-        z-index: 1;
-    }
 
     .card-content,
     .card-label {
@@ -85,10 +80,21 @@ $card-padding: 20px;
         padding-top: 40px;
     }
 
+    @media #{$mq-phone-wide} {
+        padding-top: 180px;
+    }
+
     @media #{$mq-tablet} {
+        background-size: 100%;
+        padding-top: 220px;
+
         .card-content {
             margin-right: $card-padding * 2;
         }
+    }
+
+    @media #{$mq-desktop} {
+        padding-top: 280px;
     }
 }
 
