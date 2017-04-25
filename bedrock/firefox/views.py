@@ -541,31 +541,35 @@ class FirefoxHubView(l10n_utils.LangFilesMixin, TemplateView):
         context = super(FirefoxHubView, self).get_context_data(**kwargs)
         locale = l10n_utils.get_locale(self.request)
 
+        articles = []
+
         # en-* only for blog posts
         if locale.startswith('en-'):
             try:
                 fx_blog = BlogPost.objects.filter_by_blogs('firefox')
             except Exception:
-                fx_blog = None
+                pass
 
             if fx_blog:
                 try:
-                    context['blog_article'] = fx_blog
+                    articles.append(fx_blog[0])
 
                     # TODO when tag is added:
                     #context['blog_article'] = fx_blog.filter_by_tags('home')[:1]
                 except Exception:
-                    context['blog_article'] = None
+                    pass
 
                 try:
-                    context['browser_article'] = fx_blog.filter_by_tags('browser')[:1]
+                    articles.append(fx_blog.filter_by_tags('browser')[:1][0])
                 except Exception:
-                    context['browser_article'] = None
+                    pass
 
                 try:
-                    context['privacy_article'] = fx_blog.filter_by_tags('privacy')[:1]
+                    articles.append(fx_blog.filter_by_tags('privacy')[:1][0])
                 except Exception:
-                    context['privacy_article'] = None
+                    pass
+
+        context['articles'] = articles
 
 
         return context

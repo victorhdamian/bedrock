@@ -33,8 +33,15 @@ $color-burnt-orange: #9c432a;
         width: 12px;
     }
 
+    &:active,
+    &:visited {
+        color: $color-burnt-orange;
+    }
+
     &:hover,
-    &:focus {
+    &:focus,
+    &:visited:hover,
+    &:visited:focus {
         color: lighten($color-burnt-orange, 10%);
         border-color: lighten($color-burnt-orange, 10%);
 

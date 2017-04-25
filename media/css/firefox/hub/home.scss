@@ -7,15 +7,7 @@
 @import '../../hubs/sub-nav';
 @import '../../hubs/cards';
 @import '../../hubs/buttons';
-
-$grey: #ddd;
-
-@mixin greyBox() {
-    @include border-box();
-    background: $grey;
-    margin: 20px;
-    padding: 20px;
-}
+@import './news-feed';
 
 #hub-content {
     @include zilla-slab;
@@ -32,7 +24,8 @@ $grey: #ddd;
     }
 }
 
-.page-section {
+.page-section,
+.news {
     .content {
         &:before {
             @include gradient-horizontal($start-color: #69B9D0, $end-color: #9a4229);
@@ -105,6 +98,21 @@ $grey: #ddd;
 
 #independent.featured-image-card {
     background-image: url('/media/img/firefox/hub/texture-independent.jpg');
+}
+
+/* -------------------------------------------------------------------------- */
+// Blogosphere 🌎
+
+// temporary hacks to get my markup working with agibson's includes
+.news {
+    .section-title {
+        @extend .card-label;
+        margin-top: 20px;
+    }
+}
+
+#feeds .content:before {
+    display: none;
 }
 
 /* -------------------------------------------------------------------------- */

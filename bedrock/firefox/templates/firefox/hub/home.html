@@ -14,7 +14,7 @@
 {% endblock %}
 
 {% block content %}
-  {% include 'firefox/hub/_sub-nav.html' %}
+  {% include 'firefox/includes/hub/sub-nav.html' %}
 
   <div id="hub-content">
     <section id="intro-features" class="page-section">
@@ -121,64 +121,11 @@
     </section>
     {% endif %}
 
+    {% include 'firefox/includes/hub/news-feed.html' %}
+
+    {% if LANG.startswith('en-') %}
     <section id="feeds" class="page-section">
       <div class="content">
-      {% if blog_article or browser_article or privacy_article %}
-        <section id="blog-feed">
-        {% if blog_article %}
-          <div class="card card-blog{% if blog_article[0].get_featured_image_url() %} card-image{% endif %}">
-            <strong class="card-label">From the blogosphere</strong>
-
-            <div class="card-content">
-              {% if blog_article[0].get_featured_image_url() %}
-                <img src="{{ blog_article[0].get_featured_image_url() }}" alt="" class="card-blog-image">
-              {% endif %}
-
-              <div class="card-content-inner">
-                <h2 class="card-heading">
-                  {{ blog_article[0].blog_title }}
-                </h2>
-
-                <a href="{{ blog_article[0].link }}" class="card-cta">{{ blog_article[0].blog_name }}</a>
-              </div>
-            </div>
-          </div>
-        {% endif %}
-
-        {% if browser_article %}
-          <div class="card card-blog{% if browser_article[0].get_featured_image_url() %} card-image{% endif %}">
-            <div class="card-content">
-              {% if browser_article[0].get_featured_image_url() %}
-                <img src="{{ browser_article[0].get_featured_image_url() }}" alt="" class="card-blog-image">
-              {% endif %}
-
-              <div class="card-content-inner">
-                <h2 class="card-heading">{{ browser_article[0].blog_title }}</h2>
-
-                <a href="{{ browser_article[0].link }}" class="card-cta">{{ browser_article[0].blog_name }}</a>
-              </div>
-            </div>
-          </div>
-        {% endif %}
-
-        {% if privacy_article %}
-          <div class="card card-blog{% if privacy_article[0].get_featured_image_url() %} card-image{% endif %}">
-            <div class="card-content">
-            {% if privacy_article[0].get_featured_image_url() %}
-              <img src="{{ privacy_article[0].get_featured_image_url() }}" alt="" class="card-blog-image">
-            {% endif %}
-
-              <div class="card-content-inner">
-                <h2 class="card-heading">{{ privacy_article[0].blog_title }}</h2>
-
-                <a href="{{ privacy_article[0].link }}" class="card-cta">{{ privacy_article[0].blog_name }}</a>
-              </div>
-            </div>
-          </div>
-        {% endif %}
-        </section> {#--/#blog-feed--#}
-      {% endif %}
-
         <section id="third-party-feed">
           <div class="card card-stacked">
             <div class="card-content">
@@ -210,6 +157,7 @@
         </section> {#--/#third-party-feed.content--#}
       </div> {#--/.content--#}
     </section>
+    {% endif %}
 
     <section id="mobile" class="page-section">
       <div class="content">
