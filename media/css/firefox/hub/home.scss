@@ -40,13 +40,10 @@ $grey: #ddd;
             content: '';
             display: block;
             height: 6px;
-            margin: 0 20px;
+            margin: 0;
             min-width: 0;
             padding: 0;
-
-            @media #{$mq-tablet} {
-                margin: 0 auto;
-            }
+            width: 100%;
         }
     }
 
@@ -56,11 +53,6 @@ $grey: #ddd;
 }
 
 .content {
-    // clear'ing element messes up flexyboxes
-    &.columns2:after {
-        display: none;
-    }
-
     @media #{$mq-tablet} {
         padding-left: 0;
         padding-right: 0;
@@ -71,6 +63,8 @@ $grey: #ddd;
 // Intro
 
 #intro {
+    padding-top: 20px;
+
     h1 {
         @include font-size-huge;
         text-transform: lowercase;
@@ -94,37 +88,11 @@ $grey: #ddd;
     display: none;
 }
 
-@media #{$mq-tablet} {
-    #intro .content {
-        display: flex;
-    }
-
-    #page-heading {
-        flex: 1 0 auto;
-    }
-
-    #download-intro-wrapper {
-        align-items: center;
-        display: flex;
-        flex: 0 0 340px;
-        justify-content: center;
-    }
-}
-
 /* -------------------------------------------------------------------------- */
 // Features
 
-#mobile-card {
-    .card-content-wrapper {
-        @include at2x('/media/img/foundation/annualreport/2015/bg-banner-desktop.jpg', 1280px, 612px);
-    }
-}
-
-.fx-privacy-link {
-    a:link,
-    a:visited {
-        color: inherit;
-    }
+#features {
+    padding-top: 20px;
 }
 
 #private.featured-image-card {
@@ -137,6 +105,28 @@ $grey: #ddd;
 
 #independent.featured-image-card {
     background-image: url('/media/img/firefox/hub/texture-independent.jpg');
+}
+
+/* -------------------------------------------------------------------------- */
+// Mobile
+
+#mobile-card {
+    .card-content-wrapper {
+        background-image: url('/media/img/firefox/hub/mobile-large.jpg');
+        background-size: 100%;
+    }
+
+    @media #{$mq-tablet} {
+        .card-content-wrapper {
+            @include at2x('/media/img/firefox/hub/mobile-large.jpg', 100%, auto);
+        }
+    }
+
+    @media #{$mq-desktop-wide} {
+        .card-content-wrapper {
+            background-image: url('/media/img/firefox/hub/mobile-large-high-res.jpg');
+        }
+    }
 }
 
 #newsletter-form {
@@ -155,7 +145,19 @@ $grey: #ddd;
 
 @supports (display: grid) {
     @media #{$mq-tablet} {
-        #features .content {
+        #intro {
+            display: grid;
+            grid-gap: 20px;
+            grid-template: 1fr / 2fr 1fr;
+        }
+
+        #download-intro-wrapper {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        #features {
             display: grid;
             grid-gap: 20px;
             // two columns of equal size / 2 rows of equal size

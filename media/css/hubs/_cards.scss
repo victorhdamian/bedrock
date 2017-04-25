@@ -96,6 +96,10 @@ $card-padding: 20px;
     @media #{$mq-desktop} {
         padding-top: 280px;
     }
+
+    @media #{$mq-desktop-wide} {
+        padding-top: 400px;
+    }
 }
 
 // specific styles for a card with an image. used with .card
@@ -103,7 +107,7 @@ $card-padding: 20px;
     .card-content-wrapper {
         background-position: top left;
         background-repeat: no-repeat;
-        padding-top: 60px;
+        padding-top: 160px;
     }
 
     .card-content {
@@ -115,6 +119,7 @@ $card-padding: 20px;
             margin-right: auto;
             padding-bottom: $card-padding * 3;
             padding-right: $card-padding * 2;
+            padding-top: 60px;
             width: 40%;
         }
     }

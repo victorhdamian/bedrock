@@ -17,82 +17,83 @@
   {% include 'firefox/hub/_sub-nav.html' %}
 
   <div id="hub-content">
-    <section id="intro" class="page-section">
-      <div class="content columns2">
-        <div class="column">
-          <h1 id="page-heading"><span>Firefox</span></h1>
-
-          <p>
-            {{ _('The 100% free-range, fresh-squeezed, ethical browser') }}
-          </p>
-        </div>
-
-        <div class="column" id="download-intro-wrapper">
-          {{ download_firefox(dom_id='download-intro', button_color='button button-burnt-orange') }}
-        </div>
-      </div>
-    </section> {#--/#intro--#}
-
-    <section id="features" class="page-section">
+    <section id="intro-features" class="page-section">
       <div class="content">
-        <section id="private" class="card featured-image-card">
-          <strong class="card-label">{{ _('Private') }}</strong>
 
-          <div class="card-content">
-            <h2 class="card-heading">{{ _('More Privacy') }}</h2>
-
-            <p>
-            {% trans %}
-              Let your freak flag fly&hellip;or keep it safely tucked away.
-              Firefox’s powerful privacy tools give you control over your
-              data, so that you can browse, bank, and binge-watch without a
-              care.
-            {% endtrans %}
-            </p>
-
-            <a class="card-cta" href="">
-              {{ _('See how Firefox protects your privacy') }}
-            </a>
-          </div>
-        </section> {#--/.card--#}
-        <section id="modern" class="card card-stacked">
-          <strong class="card-label">{{ _('Modern') }}</strong>
-
-          <div class="card-content">
-            <h2 class="card-heading">{{ _('More Speed') }}</h2>
+        <div id="intro">
+          <div class="column">
+            <h1 id="page-heading"><span>Firefox</span></h1>
 
             <p>
-            {% trans %}
-              Bring it, Internet! Firefox has spent the last year beefing up
-              our performance, and pushing the web further with new, exclusive
-              features. So go ahead and launch a big project or binge a live
-              panda stream &mdash; without missing a beat.
-            {% endtrans %}
+              {{ _('The 100% free-range, fresh-squeezed, ethical browser') }}
             </p>
-
-            <a class="card-cta" href="">
-              {{ _('Check out our browser muscles') }}
-            </a>
           </div>
-        </section>
-        <section id="independent" class="card card-stacked">
-          <strong class="card-label">{{ _('Independent') }}</strong>
 
-          <div class="card-content">
-            <h2 class="card-heading">{{ _('More Freedom') }}</h2>
-
-            <p>
-            {% trans %}
-              Following the pack isn’t really our style; we’d rather lead.
-              Firefox is an independent browser fueled by a non-profit,
-              Mozilla. So when you choose Firefox, you’re helping build a
-              healthy, unrestricted Internet that helps everyone.
-            {% endtrans %}
-            </p>
-
-            <a class="card-cta" href="">{{ _('See how it benefits you') }}</a>
+          <div class="column" id="download-intro-wrapper">
+            {{ download_firefox(dom_id='download-intro', button_color='button button-burnt-orange') }}
           </div>
-        </section> {#--/#independent.card--#}
+        </div> {#--/#intro--#}
+
+        <div id="features">
+          <section id="private" class="card featured-image-card">
+            <strong class="card-label">{{ _('Private') }}</strong>
+
+            <div class="card-content">
+              <h2 class="card-heading">{{ _('More Privacy') }}</h2>
+
+              <p>
+              {% trans %}
+                Let your freak flag fly&hellip;or keep it safely tucked away.
+                Firefox’s powerful privacy tools give you control over your
+                data, so that you can browse, bank, and binge-watch without a
+                care.
+              {% endtrans %}
+              </p>
+
+              <a class="card-cta" href="">
+                {{ _('See how Firefox protects your privacy') }}
+              </a>
+            </div>
+          </section> {#--/.card--#}
+          <section id="modern" class="card card-stacked">
+            <strong class="card-label">{{ _('Modern') }}</strong>
+
+            <div class="card-content">
+              <h2 class="card-heading">{{ _('More Speed') }}</h2>
+
+              <p>
+              {% trans %}
+                Bring it, Internet! Firefox has spent the last year beefing up
+                our performance, and pushing the web further with new, exclusive
+                features. So go ahead and launch a big project or binge a live
+                panda stream &mdash; without missing a beat.
+              {% endtrans %}
+              </p>
+
+              <a class="card-cta" href="">
+                {{ _('Check out our browser muscles') }}
+              </a>
+            </div>
+          </section>
+          <section id="independent" class="card card-stacked">
+            <strong class="card-label">{{ _('Independent') }}</strong>
+
+            <div class="card-content">
+              <h2 class="card-heading">{{ _('More Freedom') }}</h2>
+
+              <p>
+              {% trans %}
+                Following the pack isn’t really our style; we’d rather lead.
+                Firefox is an independent browser fueled by a non-profit,
+                Mozilla. So when you choose Firefox, you’re helping build a
+                healthy, unrestricted Internet that helps everyone.
+              {% endtrans %}
+              </p>
+
+              <a class="card-cta" href="">{{ _('See how it benefits you') }}</a>
+            </div>
+          </section> {#--/#independent.card--#}
+        </div> {#--/#features--#}
       </div> {#--/.content--#}
     </section> {#--/#features.page-section--#}
 
@@ -120,97 +121,95 @@
     </section>
     {% endif %}
 
-    <hr class="content section-break" />
-
     <section id="feeds" class="page-section">
-    {% if blog_article or browser_article or privacy_article %}
-      <section id="blog-feed" class="content">
-      {% if blog_article %}
-        <div class="card card-blog{% if blog_article[0].get_featured_image_url() %} card-image{% endif %}">
-          <strong class="card-label">From the blogosphere</strong>
+      <div class="content">
+      {% if blog_article or browser_article or privacy_article %}
+        <section id="blog-feed">
+        {% if blog_article %}
+          <div class="card card-blog{% if blog_article[0].get_featured_image_url() %} card-image{% endif %}">
+            <strong class="card-label">From the blogosphere</strong>
 
-          <div class="card-content">
-            {% if blog_article[0].get_featured_image_url() %}
-              <img src="{{ blog_article[0].get_featured_image_url() }}" alt="" class="card-blog-image">
+            <div class="card-content">
+              {% if blog_article[0].get_featured_image_url() %}
+                <img src="{{ blog_article[0].get_featured_image_url() }}" alt="" class="card-blog-image">
+              {% endif %}
+
+              <div class="card-content-inner">
+                <h2 class="card-heading">
+                  {{ blog_article[0].blog_title }}
+                </h2>
+
+                <a href="{{ blog_article[0].link }}" class="card-cta">{{ blog_article[0].blog_name }}</a>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+
+        {% if browser_article %}
+          <div class="card card-blog{% if browser_article[0].get_featured_image_url() %} card-image{% endif %}">
+            <div class="card-content">
+              {% if browser_article[0].get_featured_image_url() %}
+                <img src="{{ browser_article[0].get_featured_image_url() }}" alt="" class="card-blog-image">
+              {% endif %}
+
+              <div class="card-content-inner">
+                <h2 class="card-heading">{{ browser_article[0].blog_title }}</h2>
+
+                <a href="{{ browser_article[0].link }}" class="card-cta">{{ browser_article[0].blog_name }}</a>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+
+        {% if privacy_article %}
+          <div class="card card-blog{% if privacy_article[0].get_featured_image_url() %} card-image{% endif %}">
+            <div class="card-content">
+            {% if privacy_article[0].get_featured_image_url() %}
+              <img src="{{ privacy_article[0].get_featured_image_url() }}" alt="" class="card-blog-image">
             {% endif %}
 
-            <div class="card-content-inner">
-              <h2 class="card-heading">
-                {{ blog_article[0].blog_title }}
-              </h2>
+              <div class="card-content-inner">
+                <h2 class="card-heading">{{ privacy_article[0].blog_title }}</h2>
 
-              <a href="{{ blog_article[0].link }}" class="card-cta">{{ blog_article[0].blog_name }}</a>
+                <a href="{{ privacy_article[0].link }}" class="card-cta">{{ privacy_article[0].blog_name }}</a>
+              </div>
             </div>
           </div>
-        </div>
+        {% endif %}
+        </section> {#--/#blog-feed--#}
       {% endif %}
 
-      {% if browser_article %}
-        <div class="card card-blog{% if browser_article[0].get_featured_image_url() %} card-image{% endif %}">
-          <div class="card-content">
-            {% if browser_article[0].get_featured_image_url() %}
-              <img src="{{ browser_article[0].get_featured_image_url() }}" alt="" class="card-blog-image">
-            {% endif %}
+        <section id="third-party-feed">
+          <div class="card card-stacked">
+            <div class="card-content">
+              <blockquote class="quote">
+                Why I switched back to Firefox
+              </blockquote>
 
-            <div class="card-content-inner">
-              <h2 class="card-heading">{{ browser_article[0].blog_title }}</h2>
-
-              <a href="{{ browser_article[0].link }}" class="card-cta">{{ browser_article[0].blog_name }}</a>
+              <a rel="external" href="http://www.computerworld.com/article/3074093/enterprise-applications/why-i-switched-back-to-firefox.html" class="card-cta">Computerworld</a>
             </div>
           </div>
-        </div>
-      {% endif %}
+          <div class="card card-stacked">
+            <div class="card-content">
+              <blockquote class="quote">
+                Half the Web Is Now Encrypted. That Makes Everyone Safer.
+              </blockquote>
 
-      {% if privacy_article %}
-        <div class="card card-blog{% if privacy_article[0].get_featured_image_url() %} card-image{% endif %}">
-          <div class="card-content">
-          {% if privacy_article[0].get_featured_image_url() %}
-            <img src="{{ privacy_article[0].get_featured_image_url() }}" alt="" class="card-blog-image">
-          {% endif %}
-
-            <div class="card-content-inner">
-              <h2 class="card-heading">{{ privacy_article[0].blog_title }}</h2>
-
-              <a href="{{ privacy_article[0].link }}" class="card-cta">{{ privacy_article[0].blog_name }}</a>
+              <a rel="external" href="https://www.wired.com/2017/01/half-web-now-encrypted-makes-everyone-safer/" class="card-cta">Wired</a>
             </div>
           </div>
-        </div>
-      {% endif %}
-      </section>
-    {% endif %}
+          <div class="card card-stacked">
+            <div class="card-content">
+              <blockquote class="quote">
+                Your Internet Search History Will Soon Be Up for Sale &mdash; Here’s How You Can Protect Yourself
+              </blockquote>
 
-      <section id="third-party-feed" class="content">
-        <div class="card card-stacked">
-          <div class="card-content">
-            <blockquote class="quote">
-              Why I switched back to Firefox
-            </blockquote>
-
-            <a rel="external" href="http://www.computerworld.com/article/3074093/enterprise-applications/why-i-switched-back-to-firefox.html" class="card-cta">Computerworld</a>
+              <a rel="external" href="http://www.vogue.com/article/internet-privacy-fcc-laws-eliminated-protect-yourself" class="card-cta">Wired</a>
+            </div>
           </div>
-        </div>
-        <div class="card card-stacked">
-          <div class="card-content">
-            <blockquote class="quote">
-              Half the Web Is Now Encrypted. That Makes Everyone Safer.
-            </blockquote>
-
-            <a rel="external" href="https://www.wired.com/2017/01/half-web-now-encrypted-makes-everyone-safer/" class="card-cta">Wired</a>
-          </div>
-        </div>
-        <div class="card card-stacked">
-          <div class="card-content">
-            <blockquote class="quote">
-              Your Internet Search History Will Soon Be Up for Sale &mdash; Here’s How You Can Protect Yourself
-            </blockquote>
-
-            <a rel="external" href="http://www.vogue.com/article/internet-privacy-fcc-laws-eliminated-protect-yourself" class="card-cta">Wired</a>
-          </div>
-        </div>
-      </section> {#--/#third-party-feed.content--#}
+        </section> {#--/#third-party-feed.content--#}
+      </div> {#--/.content--#}
     </section>
-
-    <hr class="content section-break" />
 
     <section id="mobile" class="page-section">
       <div class="content">
@@ -234,8 +233,6 @@
       </div> {#--/.content--#}
     </section> {#--/#mobile--#}
 
-    <hr class="content section-break" />
-
     <aside id="related-download" class="page-section">
       <div class="content">
         <div class="card related-card">
@@ -250,15 +247,13 @@
               </div>
 
               <div class="card-cta-wrapper">
-                {{ download_firefox(dom_id='features-footer-download-firefox') }}
+                {{ download_firefox(dom_id='features-footer-download-firefox', button_color='button button-burnt-orange') }}
               </div>
             </div>
           </div>
         </div>
       </div>
     </aside>
-
-    <hr class="content section-break" />
 
     <aside id="related-newsletter" class="page-section">
       <div class="content">
