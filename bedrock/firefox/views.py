@@ -531,8 +531,9 @@ class FirefoxHubView(l10n_utils.LangFilesMixin, TemplateView):
     def dispatch(self, request, *args, **kwargs):
         locale = l10n_utils.get_locale(request)
 
-        # non en-* locales continue to get redirect, though now it's a 302
-        if not locale.startswith('en-'):
+        # until we get localizable copy, non en-US locales continue to get
+        # redirect, though now it's a 302
+        if not locale == 'en-US':
             return HttpResponseRedirect(reverse('firefox.new'))
         else:
             return super(FirefoxHubView, self).dispatch(request, *args, **kwargs)
@@ -544,6 +545,8 @@ class FirefoxHubView(l10n_utils.LangFilesMixin, TemplateView):
         articles = []
 
         # en-* only for blog posts
+        # this is redundant at the moment (based on redirect above), but should
+        # stay in place for when we eventually have localizable copy
         if locale.startswith('en-'):
             try:
                 fx_blog = BlogPost.objects.filter_by_blogs('firefox')
@@ -570,6 +573,5 @@ class FirefoxHubView(l10n_utils.LangFilesMixin, TemplateView):
                     pass
 
         context['articles'] = articles
-
 
         return context
